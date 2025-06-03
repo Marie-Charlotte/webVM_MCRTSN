@@ -1,4 +1,4 @@
-FROM --platform=i386 i386/debian:buster
+FROM --platform=i386 i386/debian:bullseye
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get clean && apt-get update && apt-get -y upgrade
 RUN apt-get -y install apt-utils build-essential \
@@ -7,8 +7,8 @@ RUN apt-get -y install apt-utils build-essential \
 	patch wamerican ucf manpages \
 	file make dialog curl vim nano \
 	less netcat-openbsd
-# RUN pip3 install robotframework robotframework-seleniumlibrary
-RUN pip3 install robotframework
+RUN pip3 install robotframework robotframework-seleniumlibrary --break-system-packages
+RUN pip3 install matplotlib --break-system-packages
 # RUN curl -fsSL https://get.docker.com -o get-docker.sh
 # RUN sh get-docker.sh
 # RUN docker pull ubuntu
