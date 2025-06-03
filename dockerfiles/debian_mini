@@ -2,16 +2,13 @@ FROM --platform=i386 i386/debian:bullseye
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get clean && apt-get update && apt-get -y upgrade
 RUN apt-get -y install apt-utils build-essential \
-	python3-pip cron net-tools iputils-ping netbase ifupdown \
-	fakeroot dbus base whiptail hexedit init \
+	python3-pip cron \
+	fakeroot dbus base whiptail hexedit init systemctl \
 	patch wamerican ucf manpages \
 	file make dialog curl vim nano \
-	less netcat-openbsd
-RUN pip3 install robotframework robotframework-seleniumlibrary --break-system-packages
-RUN pip3 install matplotlib --break-system-packages
-# RUN curl -fsSL https://get.docker.com -o get-docker.sh
-# RUN sh get-docker.sh
-# RUN docker pull ubuntu
+	less
+RUN pip3 install robotframework robotframework-seleniumlibrary
+RUN pip3 install matplotlib
 RUN useradd -m user && echo "user:password" | chpasswd
 RUN /usr/sbin/usermod -aG root user
 COPY --chown=user:user ./examples /home/user/Workspace
