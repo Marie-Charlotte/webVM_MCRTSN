@@ -1,4 +1,4 @@
-!/usr/bin python3
+#!/usr/bin python3
 from robot.api import TestSuiteBuilder, TestSuite
 import os
 import re
