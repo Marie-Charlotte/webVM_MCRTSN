@@ -7,6 +7,7 @@ COPY ./examples /home/user/Workspace
 RUN chmod 777 -R /home/user
 # We set WORKDIR, as this gets extracted by Webvm to be used as the cwd. This is optional.
 WORKDIR /home/user/
+RUN touch /run/openrc/softlevel
 RUN rc-service cronie start
 USER user
 # We set env, as this gets extracted by Webvm. This is optional.
