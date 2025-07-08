@@ -1,6 +1,6 @@
 FROM --platform=i386 i386/alpine
 RUN apk upgrade 
-RUN apk add python3 py3-pip vim bash git zram-init cronie
+RUN apk add python3 py3-pip vim bash git zram-init cronie openjdk-21-jre
 RUN pip3 install robotframework --break-system-packages 
 # RUN /usr/sbin/crond -f &
 RUN adduser user -D user
