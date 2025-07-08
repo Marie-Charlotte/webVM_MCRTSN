@@ -8,7 +8,6 @@ COPY ./examples /home/user/Workspace
 RUN chmod 777 -R /home/user
 # We set WORKDIR, as this gets extracted by Webvm to be used as the cwd. This is optional.
 WORKDIR /home/user/
-RUN rc-service zram-init enable
 RUN rc-service zram-init start
 USER user
 # We set env, as this gets extracted by Webvm. This is optional.
